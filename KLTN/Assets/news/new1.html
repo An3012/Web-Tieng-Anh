@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/slick.css" />
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/owl.carousel.js" type="text/javascript"></script>
+    <script src="./js/jquery.fancybox.min.js" type="text/javascript"></script>
+    <script src="./js/slick.js" type="text/javascript"></script>
+    <script src="./js/script.js" type="text/javascript"></script>
+    <title>English Fullbright</title>
+</head>
+
+<body class="m-0 p-0">
+    <div class="h-full w-full bg-black/50 absolute z-40 transition-all hidden" id="navBackdrop" onclick="toggleNavMobile()"></div>
+    <nav class="w-[280px] bg-white shadow h-full py-6 px-4 absolute -translate-x-[280px] transition-all z-50" id="navMobile">
+        <ul class="flex flex-col uppercase m-0 p-0 text-sm text-[rgba(36,36,36,1)] font-normal">
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Home</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Introduction</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200"></a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Course</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">News</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Skills</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Online class</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">AI</a></li>
+        </ul>
+    </nav>
+    <header class="bg-gradient text-white relative z-20">
+        <!-- Top Bar -->
+        <div class="container max-w-[1320px] mx-auto hidden xl:flex justify-between items-center p-2">
+            <div class="flex items-center space-x-4">
+                <a href="tel:0974624069" class="flex space-x-1 items-center justify-start">
+                    <img src="/Image/phone.png" alt="Phone" class="h-4 w-4" />
+                    <span class="text-[13px] font-semibold">0974.624.069</span>
+                </a>
+                <a href="#" class="flex space-x-1 items-center justify-start">
+                    <img src="/Image/location.png" alt="Location" class="h-4 w-4" />
+                    <span class="text-[13px] font-semibold">Liên hệ</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-10">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-[13px] font-semibold">eOffice</a>
+                    <a href="#" class="hover:underline text-[13px] font-semibold">Cẩm nang văn hoá VietsoPetro</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-sm">
+                        <img src="/Image/langua1.png" alt="Langua 1" class="w-6 h-6" />
+                    </a>
+                    <a href="#" class="hover:underline text-sm">
+                        <img src="/Image/langua2.png" alt="Langua 2" class="w-6 h-6" />
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-sm"
+                        onclick="toggleSeachForm()"
+                    >
+                        <img src="/Image/search.png" alt="Langua 1" class="w-4 h-4" />
+                    </a>
+                    <a href="#" class="hover:underline text-sm"
+                        onclick="toggleNavMobile()"
+                    >
+                        <img src="/Image/iconBar.png" alt="Langua 2" class="w-5 h-4 object-contain" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header -->
+        <div class="bg-white shadow z-20 relative">
+            <div class="container max-w-[1320px] mx-auto flex justify-between items-center p-4">
+                <div class="mr-10 xl:mr-20 flex items-center justify-start space-x-4">
+                    <div class="flex xl:hidden justify-center items-center h-12 w-12">
+                        <a href="javascript:;" id="toggleNavMobile" class="h-10 w-10 flex justify-center items-center"
+                            onclick="toggleNavMobile()"
+                        >
+                            <img src="/Image/IconNavDark.png" alt="Icon Nav Mobile" class="w-7 h-3" />
+                        </a>
+                    </div>
+                    <a href="/" id="logoSite">
+                        <img src="/Image/logo3.jpg" alt="Logo" class="h-12 mr-2"> <!-- Thay thế với URL logo của bạn -->
+                    </a>
+                </div>
+                <nav class="hidden xl:flex space-x-6 flex-1 justify-end">
+                    <ul class="flex justify-between uppercase m-0 p-0 space-x-3 lg:space-x-3 xl:space-x-8 text-sm text-[rgba(36,36,36,1)] font-normal">
+                        <nav
+                        class="hidden xl:flex space-x-6 flex-1 justify-end main-menu">
+                        <ul
+                            class="navbar relative flex justify-between m-0 p-0 space-x-3 lg:space-x-3 xl:space-x-8 text-sm text-[rgba(36,36,36,1)] font-normal">
+                            <li>
+                                <a href="#"
+                                    class="text-[rgba(36,36,36,1)] uppercase">Home</a>
+                            </li>
+                            <li>
+                                <a href="/aboutus.html"
+                                    class="text-[rgba(36,36,36,1)] uppercase">introduction</a>
+                            </li>
+                           
+                            </li>
+                            <li class="group">
+                                <a href="courses.html"
+                                    class="text-[rgba(36,36,36,1)] uppercase">Courses</a>
+                                <div
+                                    class="mega-menu  bg-white shadow-2xl shadow-black/50 rounded-2xl absolute left-2/2 -translate-x-2/2 top-[100%] invisible opacity-0 translate-y-10 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                                    <div
+                                        class="grid grid-flow-row overflow-hidden rounded-2xl">
+                                        <div
+                                            class="col-span-1 border-r border-gray-300 p-[30px]">
+                                            <ul class="menu-mega-vertical">
+                                                <li class="active"
+                                                    data-tab="01">
+                                                    <a href="#">Speaking Course</a>
+                                                </li>
+                                                <li data-tab="02">
+                                                    <a href="#">Writing Course</a>
+                                                </li>
+                                                <li data-tab="03">
+                                                    <a href="#">Reading Course</a>
+                                                </li>
+                                                <li data-tab="04">
+                                                    <a href="#">Listening Course</a>
+                                                </li>
+                                                <li data-tab="05">
+                                                    <a href="#">grammar course</a>
+                                                </li>
+                                                <li data-tab="06">
+                                                    <a href="#">Vocabulary</a>
+                                                </li>
+                                            
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="group">
+                                <a href="#"
+                                    class="text-[rgba(36,36,36,1)] uppercase">Skills</a>
+                                <div
+                                class="mega-menu  bg-white shadow-2xl shadow-black/50 rounded-2xl absolute left-2/5 -translate-x-2/2 top-[100%] invisible opacity-0 translate-y-10 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                                    <div
+                                        class="grid grid-flow-row grid-cols-1 overflow-hidden rounded-2xl">
+                                        <div
+                                            class="col-span-1 border-r border-gray-300 p-[30px]">
+                                            <ul class="menu-mega-vertical">
+                                                <li class="active"
+                                                    data-tab="01">
+                                                    <a href="#">Về chúng
+                                                        tôi</a>
+                                                </li>
+                                                <li data-tab="02">
+                                                    <a href="#">Lịch sử hình
+                                                        thành</a>
+                                                </li>
+                                                <li data-tab="03">
+                                                    <a href="#">Cơ cấu tổ
+                                                        chức</a>
+                                                </li>
+                                                <li data-tab="04">
+                                                    <a href="#">Ban lãnh
+                                                        đạo</a>
+                                                </li>
+                                                <li data-tab="05">
+                                                    <a href="#">Lĩnh vực
+                                                        hoạt động</a>
+                                                </li>
+                                                <li data-tab="06">
+                                                    <a href="#">Năng lực
+                                                        hoạt động</a>
+                                                </li>
+                                                <li data-tab="07">
+                                                    <a href="#">Thành tựu
+                                                        nổi bật</a>
+                                                </li>
+                                                <li data-tab="08">
+                                                    <a href="#">Danh
+                                                        hiệu</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="group">
+                                <a href="homenews.html"
+                                    class="text-[rgba(36,36,36,1)] uppercase">News</a>
+
+                            </li>
+                            <li><a href="#"
+                                    class="text-[rgba(36,36,36,1)] uppercase">Online
+                                    class</a></li>
+                            <li><a href="#"
+                                    class="text-[rgba(36,36,36,1)] uppercase">AI
+                                    support</a></li>
+                            <li><a href="#"
+                                    class="text-[rgba(36,36,36,1)] uppercase">Tuyển
+                                    sinh</a></li>
+                        </ul>
+                    </nav>
+                    </ul>
+                </nav>
+                <div class="flex xl:hidden items-center space-x-4">
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex">
+                            <img src="/Image/langua1.png" alt="Langua 1" class="w-6 h-6" />
+                        </a>
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex">
+                            <img src="/Image/langua2.png" alt="Langua 2" class="w-6 h-6" />
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex"
+                            onclick="toggleSeachForm()"
+                        >
+                            <img src="/Image/search-dark.png" alt="Langua 1" class="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100/50 absolute w-full py-3 -translate-y-16 z-10 transition-all px-4" id="formSearch">
+            <div class="container mx-auto max-w-[1320px] relative">
+                <input type="text" placeholder="Nhập tìm kiếm" class="h-11 w-full rounded-full border border-gray-100 px-4 placeholder:text-gray-300" />
+                <a href="#" class="absolute top-1/2 right-4 -translate-y-1/2">
+                    <img src="/Image/search-dark.png" alt="Langua 1" class="w-4 h-4" />
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="m-0 p-0">
+        <section class="p-0 m-0 relative h-[350px] lg:h-[450px] header-ttdm flex items-end">
+            <div class="container max-w-[1320px] mx-auto pb-12 px-6 lg:px-0">
+                <div class="py-2 text-white text-[11px] flex line-clamp-1 space-x-0 lg:space-x-3 items-center lg:mb-2">
+                    <a class="whitespace-nowrap" href="/">Home</a>
+                    <img src="/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+                    <span class="whitespace-nowrap line-clamp-1">news</span>
+                </div>
+                <h1 class="text-black text-2xl xl:text-5xl font-bold">READING NEWS</h1>
+            </div>
+        </section>
+        <br>
+        <center>
+        <div class="item">
+            <img src="/Image/imgnews/newsiphone.webp" alt="SPDV1" class="reading1" />
+            <div class="pt-5 pb-[30px]">
+                <div class="mb-3">
+                    <a href="#" class="uppercase text-[#1684E9] text-[13px] tracking-widest">Some AirPods Can Now Be Used as Hearing Aids</a>
+                </div>
+                <h3 class="text-[#161c2D] line-clamp-1 text-lg lg:text-2xl font-semibold mb-3">Beginer</h3>
+                <p class="text-[13px] mb-3 text-[#919296]">11:50 03/10/2024</p>
+                <p class="text-base text-secondary line-clamp-2 leading-7">That's after Apple released a new software update at the end of October. It's a move that experts have welcomed.</p>
+            </div>
+        </div>
+            <center>
+                <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 80%;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black;">Word</th>
+                            <th style="border: 1px solid black;">Part of Speech</th>
+                            <th style="border: 1px solid black;">Pronunciation</th>
+                            <th style="border: 1px solid black;">Definition</th>
+                            <th style="border: 1px solid black;">Example Sentence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid black;">personalized</td>
+                            <td style="border: 1px solid black;">Adjective</td>
+                            <td style="border: 1px solid black;">
+                                ˈpɜːrsənəlaɪzd
+                                <audio controls>
+                                    <source src="/audio/personalized.mp3.mp3" type="audio/mpeg" class="sound">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">designed or made in a way that meets a particular person's wants or needs</td>
+                            <td style="border: 1px solid black;">I feel a lot better about my fitness since I started following a personalized workout plan.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">amplification</td>
+                            <td style="border: 1px solid black;">Noun</td>
+                            <td style="border: 1px solid black;">
+                                ˌæmplɪfɪˈkeɪʃn
+                                <audio controls>
+                                    <source src="audio/amplification.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">the process of raising the volume of sound, especially using an amplifier</td>
+                            <td style="border: 1px solid black;">Orchestras typically do not use any kind of electronic amplification.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">retailer</td>
+                            <td style="border: 1px solid black;">Noun</td>
+                            <td style="border: 1px solid black;">
+                                ˈriˌteɪlər
+                                <audio controls>
+                                    <source src="audio/retailer.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">a person or business that sells things to customers for use or consumption, rather than to be sold again</td>
+                            <td style="border: 1px solid black;">Our company is the biggest food retailer in Austria.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">normalize</td>
+                            <td style="border: 1px solid black;">Verb</td>
+                            <td style="border: 1px solid black;">
+                                ˈnɔːrməlaɪz
+                                <audio controls>
+                                    <source src="audio/normalize.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">to come to be considered normal by society</td>
+                            <td style="border: 1px solid black;">Wearing face masks was only normalized in some Western countries during the COVID-19 pandemic.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">ubiquity</td>
+                            <td style="border: 1px solid black;">Noun</td>
+                            <td style="border: 1px solid black;">
+                                juːˈbɪkwəti
+                                <audio controls>
+                                    <source src="audio/ubiquity.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">the fact of being very common</td>
+                            <td style="border: 1px solid black;">The ubiquity of mobile phones means we're almost always in contact with our friends and family.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">drawback</td>
+                            <td style="border: 1px solid black;">Noun</td>
+                            <td style="border: 1px solid black;">
+                                ˈdrɔːˌbæk
+                                <audio controls>
+                                    <source src="audio/drawback.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="border: 1px solid black;">a feature that makes something less acceptable, desirable, etc.</td>
+                            <td style="border: 1px solid black;">One major drawback of living in New York City is the high cost of living.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+            <div style="margin-top: 100px; font-size: 60px;"></div>
+                <h1 class="color" color="red">Exercise 2</h1>
+                <h3>Article</h3>
+                <p>Read the article aloud on your own or repeat each paragraph after your tutor.</p>
+                <p>AI Generated Audio</p>
+            </div>
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="/audio/some-airpods-can-now-be-used-as-hearing-aids.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <hr  width="50%" align="center" /> 
+        </div>
+        <div style="text-align: center; margin-top: 20px; font-size: 20px; font-family: Arial, sans-serif;margin-left: 500px;margin-right: 500px;">
+              <p style="text-align: justify;">In the US, an estimated 30 million people — 1 in 8 Americans over the age of 12 — have hearing loss in both ears.</p>
+
+            <p style="text-align: justify;">Millions would benefit from hearing aids but most have never tried them, according to the National Institute on Deafness.</p>
+
+             <p style="text-align: justify;">Many other people have tried hearing aids, but don't use them because of cost, poor quality, how they look or for other reasons.</p>
+
+
+            <p style="text-align: justify;">Over the past few years, there has been a push to change that. Two years ago, federal rules changed to allow hearing aids to be sold over-the-counter, a move that many hoped would bring better and cheaper options to patients.</p>
+
+
+             <p style="text-align: justify;">And in September, the US Food and Drug Administration approved software from Apple that would turn AirPods into hearing aids.</p>
+
+
+              <p style="text-align: justify;">The hearing aid feature is available with the Pro 2 models, and requires an iPhone or iPad to set it up. It starts with built-in tests that will help users determine if they have hearing loss, set up the feature if they do, and set personalized amplification levels.</p>
+
+
+               <p style="text-align: justify;">The headphones sell for $249 on Apple's website, and sometimes less from other retailers.</p>
+
+
+            <p style="text-align: justify;">While there are many other earbud-type devices that can function the same way, experts agree that the AirPods addition is a good one, because of the way it could help normalize the wearing of hearing aids.</p>
+
+
+             <p style="text-align: justify;">The ubiquity of AirPods could make people who are worried about the look of a hearing aid more open to using them.</p>
+
+
+              <p style="text-align: justify;">There may be some drawbacks, though. Fit and comfort during long use might be an issue. Other hearing aids are built to last through a whole day or more, the battery life of the AirPods won't allow for that.</p>
+
+
+               <p style="text-align: justify;">Wearing earbuds may also make others think that the person doesn't want to be disturbed or spoken to.</p>
+
+
+            </div>
+
+
+         

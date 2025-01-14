@@ -1,0 +1,212 @@
+﻿
+@{ ViewBag.Title = "Chi tiết bài học";
+    Layout = "~/Areas/Admin/Views/Shared/shared/_Layout_All.cshtml";
+    ViewBag.hrf = "quan_ly_bai_hoc_khoa_hoc";
+    var course = ViewBag.baihoc as KLTN.Entities.DmBaiHoc;
+    if (course == null)
+    {
+        course = new KLTN.Entities.DmBaiHoc();
+    }
+}
+<style>
+    .image-container {
+        margin-top: 20px;
+    }
+
+    .image-preview {
+        display: inline-block;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .img-bg {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        padding-bottom: 100%;
+    }
+
+    .image-remove::after {
+        content: "✖";
+        font-size: 14px;
+        color: white;
+    }
+
+    .image-remove {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: center;
+        line-height: 24px;
+        z-index: 1;
+        cursor: pointer;
+    }
+</style>
+<script>
+    function add_imgproduct() {
+        document.getElementById("input-fileImgProduct").click();
+    }
+    function add_imgproductdetail() {
+        document.getElementById("input-fileImgProductdetail").click();
+    }</script>
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>@ViewBag.Title</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Admin/@ViewBag.hrf">Quản lý khóa học</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">@ViewBag.Title</a></li>
+        </ol>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="form-validation">
+            <div class="row">
+                <div class="col-xl-6 ">
+                    <div class="form-group form-group-img AnhProduct">
+                        <div class="row" id="AnhProduct">
+                            <label class="col-lg-3  col-form-label position-relative">
+                                <span class="col-form-label">Hình ảnh</span>
+
+                            </label>
+                            <label class="col-lg-8  col-form-label">
+                                <a class="form-group-a add_imgproduct" onclick="add_imgproduct()" href="javascript:;">Thêm ảnh bài học</a>
+                            </label>
+                        </div>
+                        <label style="margin-top:6px" class="col-lg-6  col-form-label">
+                            <img src="@course.ImgLink" class="img-thumbnail" id="fileImgProduct-img">
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <label style="margin-top:6px" class="col-lg-3  col-form-label">
+                            Tên khóa học:
+                        </label>
+                        <div class="col-lg-8 ">
+                            <label style="margin-top:6px" class="col-lg-3  col-form-label">@course.TenBaiHoc </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label style="margin-top:6px" class="col-lg-3  col-form-label">
+                            Phân loại:
+                        </label>
+                        <div class="col-lg-8  SelctPhanLoai">
+                            <label style="margin-top:6px" class="col-lg-3  col-form-label">@ViewBag.listLoaiKhoaHoc </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label style="margin-top:6px" class="col-lg-3  col-form-label">
+                            Lộ trình học:
+                        </label>
+                        <div class="col-lg-8  SelctPhanLoai">
+                            <label style="margin-top:6px" class="col-lg-3  col-form-label">@ViewBag.TenKhoaHoc </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label style="margin-top:6px" class="col-lg-3  col-form-label">
+                            Khóa học:
+                        </label>
+                        <div class="col-lg-8  SelctPhanLoai">
+                            <label style="margin-top:6px" class="col-lg-3 col-form-label">@course.TenBaiHoc </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="form-group row">
+                        <label style="margin-top:6px" class="col-lg-3  col-form-label">
+                            Nội dung:
+                        </label>
+                    </div>
+                    <div style="margin-top:6px" class="form-group row">
+                        <div class="col-lg-12 ">
+                            <textarea class="form-control" readonly>@course.NoiDung</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-file TaiLieu">
+                        <div class="row" id="TaiLieu">
+                            <label class="col-lg-3 col-form-label position-relative">
+                                <span class="col-form-label">Tài liệu:</span>
+                            </label>
+                            <div class="col-lg-8 p-2" id="file-container">
+                                @if (!string.IsNullOrEmpty(course.FileLink))
+                                {
+                                    <a href="@Url.Action("DownloadFile", "quan_ly_bai_hoc_khoa_hoc", new { id = course.Id })"
+                                       download="@Path.GetFileName(course.FilePath)">
+                                        @Path.GetFileName(course.FilePath)
+                                    </a>
+                                }
+                                else
+                                {
+                                    <label class="add_fileTaiLieu">Không có tài liệu đi kèm</label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-8 ml-auto" style="padding-left: 28px;">
+                <a href="/Admin/@ViewBag.hrf" class="btn btn-primary" style="width: 95px;">Trở lại</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    function SelectedImage(event) {
+        var input = event.target; // Lấy input file
+        var file = input.files[0]; // Lấy file đầu tiên từ danh sách files của input
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgElement = document.getElementById('fileImgProduct-img');
+                var removeBtn = document.getElementById('btnRemoveImage');
+                imgElement.src = e.target.result;  // Gán dữ liệu ảnh vào thẻ img
+                imgElement.classList.remove('img-thumbnail-hidden');
+                imgElement.classList.add('img-thumbnail');
+                document.querySelector('.add_imgproduct').textContent = 'Thay đổi hình ảnh';
+
+                // Hiển thị nút xóa khi có ảnh
+                removeBtn.style.display = 'block';
+            };
+            reader.readAsDataURL(file); // Đọc file ảnh dưới dạng URL
+        }
+    }
+
+    function removeImage() {
+        var imgElement = document.getElementById('fileImgProduct-img');
+        var removeBtn = document.getElementById('btnRemoveImage');
+        imgElement.src = ""; // Xóa ảnh hiện tại
+        imgElement.classList.remove('img-thumbnail');
+        imgElement.classList.add('img-thumbnail-hidden');
+        document.querySelector('.add_imgproduct').textContent = 'Thêm ảnh khóa học';
+        removeBtn.style.display = 'none';
+        document.getElementById('input-fileImgProduct').value = "";
+    }
+    function add_imgproduct() {
+        document.getElementById('input-fileImgProduct').click();
+    }
+    document.getElementById('formCapNhat_khoaHoc').onsubmit = function () {
+        var checkbox = document.querySelector('input[name="val_tinhtrang"]');
+        if (checkbox.checked) {
+            checkbox.value = "true";
+        } else {
+            checkbox.value = "false";
+        }
+    };
+
+</script>

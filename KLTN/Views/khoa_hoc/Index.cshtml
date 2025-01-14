@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+
+    var listKhoaHoc = ViewBag.listsp as List<KLTN.Entities.DmKhoaHoc>;
+    if (listKhoaHoc == null)
+    {
+        listKhoaHoc = new List<KLTN.Entities.DmKhoaHoc>();
+    }
+}
+
+<main class="m-0 p-0">
+    <section class="p-0 m-0 relative h-[350px] lg:h-[450px] header-page flex items-end">
+        <div class="container max-w-[1320px] mx-auto pb-12">
+            <div class="py-2 text-white text-[11px] flex line-clamp-1 space-x-0 lg:space-x-3 items-center lg:mb-2 whitespace-nowrap">
+                <a href="/">Home</a>
+                <img src="/Assets/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+                <a href="#">Courses</a>
+                <img src="/Assets/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+
+            </div>
+            <h1 class="text-white text-2xl xl:text-5xl font-bold">Course</h1>
+        </div>
+    </section>
+    <section class="m-0 py-[60px] relative">
+        <div class="container max-w-[1320px] mx-auto px-4">
+            <div class="main-content">
+                <div class="grid grid-flows-row grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div class="col-span-2">
+
+                        <div class="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-6">
+                            @if (listKhoaHoc == null)
+                            {
+
+
+                                <span>Khong co du lieu</span>
+                            }
+                            else
+                            {
+                                foreach (var item in listKhoaHoc)
+                                {
+                                    <div class="item rounded-xl shadow-lg overflow-hidden">
+                                        <a href="/khoa_hoc/Ngu_phap">
+                                            <img src="@item.ImgLink" alt="Tin tuc 01" class="w-full h-[285px] object-cover" />
+                                        </a>
+                                        <div class="flex flex-col space-y-3 p-4 text-center">
+                                            <h4 class="text-blue-500 font-medium tracking-widest text-[13px] uppercase">
+                                                <a href="/khoa_hoc/Ngu_phap" onclick="toggleModal()">@item.TenKhoaHoc</a>
+                                            </h4>
+                                            <p class="text-base line-clamp-2 text-gray-500">@item.MoTa</p>
+                                            <a href="/khoa_hoc/Ngu_phap" onclick="toggleModal()" class="group justify-center items-center space-x-2 px-0 py-3 rounded-lg transition-all hidden lg:inline-flex">
+                                                <span class="text-[16px] font-medium whitespace-nowrap transition-all">Xem thêm</span>
+                                                <img src="/Assets/Image/icon/navigation/arrow_downward.png" alt="Arrow" class="w-[24px] max-w-[24px] h-[14px]" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            <div class="item rounded-xl shadow-lg overflow-hidden">
+                                <a href="/khoa_hoc/Ngu_phap">
+                                    <img src="~/Assets/Image/grammar.jpg" alt="Tin tuc 01" class="w-full h-[285px] object-cover" />
+                                </a>
+                                <div class="flex flex-col space-y-3 p-4 text-center">
+                                    <h4 class="text-blue-500 font-medium tracking-widest text-[13px] uppercase">
+                                        <a href="/khoa_hoc/Ngu_phap" onclick="toggleModal()">Grammar course</a>
+                                    </h4>
+
+                                    <p class="text-base line-clamp-2 text-gray-500">Here you can find activities to practise your speaking skills. You can improve your speaking by noticing the language we use in different situations and practising useful phrases.</p>
+                                    <a href="/khoa_hoc/Ngu_phap" onclick="toggleModal()" class="group justify-center items-center space-x-2 px-0 py-3 rounded-lg transition-all hidden lg:inline-flex">
+                                        <span class="text-[16px] font-medium whitespace-nowrap transition-all">Xem thêm</span>
+                                        <img src="/Assets/Image/icon/navigation/arrow_downward.png" alt="Arrow" class="w-[24px] max-w-[24px] h-[14px]" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item rounded-xl shadow-lg overflow-hidden">
+                                <a href="/khoa_hoc/Tu_vung">
+                                    <img src="~/Assets/Image/vocab.jpg" alt="Tin tuc 01" class="w-full h-[285px] object-cover" />
+                                </a>
+                                <div class="flex flex-col space-y-3 p-4 text-center">
+                                    <h4 class="text-blue-500 font-medium tracking-widest text-[13px] uppercase">
+                                        <a href="/khoa_hoc/Tu_vung" onclick="toggleModal()">Vocabulary course</a>
+                                    </h4>
+
+                                    <p class="text-base line-clamp-2 text-gray-500">Here you can find activities to practise your speaking skills. You can improve your speaking by noticing the language we use in different situations and practising useful phrases.</p>
+                                    <a href="/khoa_hoc/Tu_vung" onclick="toggleModal()" class="group justify-center items-center space-x-2 px-0 py-3 rounded-lg transition-all hidden lg:inline-flex">
+                                        <span class="text-[16px] font-medium whitespace-nowrap transition-all">Xem thêm</span>
+                                        <img src="/Assets/Image/icon/navigation/arrow_downward.png" alt="Arrow" class="w-[24px] max-w-[24px] h-[14px]" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        @*<div class="pagination text-center mt-6">
+                            <ul class="">
+                                <li><a class="page active" href="#">1</a></li>
+                                <li><a class="page" href="#">2</a></li>
+                                <li><a class="page" href="#">3</a></li>
+                                <li><a class="page" href="#">4</a></li>
+                                <li><a class="page" href="#">...</a></li>
+                                <li><a href="#">Trang kế tiếp</a></li>
+                            </ul>
+                        </div>*@
+                    </div>
+                    <div class="sidebar">
+                        <div class="search relative">
+                            <input type="text" placeholder="Tìm kiếm..." class="h-12 w-full border-b border-gray-300 px-4" />
+                            <a href="#" class="absolute top-1/2 right-3 -translate-y-1/2">
+                                <img src="/Assets/Image/search-dark.png" alt="Search" class="w-6 h-6" />
+                            </a>
+                        </div>
+                        <nav class="mt-6">
+                            <ul class="primary-menu text-sm text-[rgba(36,36,36,1)] font-normal">
+                                <li>
+                                    <a href="#" class="text-[rgba(36,36,36,1)] flex justify-between items-center">
+                                        <span>Introduction</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="sub-menu text-sm text-[rgba(36,36,36,1)] font-normal">
+                                        <li><a href="#" class="text-[rgba(36,36,36,1)]">About us</a></li>
+                                       
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-[rgba(36,36,36,1)]">
+                                        <span>Courses</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="sub-menu text-sm text-[rgba(36,36,36,1)] font-normal">
+                                        <li><a href="#" class="text-[rgba(36,36,36,1)]">beginer</a></li>
+                                        <li><a href="#" class="text-[rgba(36,36,36,1)]">advanced</a></li>
+                                   
+                                    </ul>
+                                </li>
+                                @*<li><a href="#" class="text-[rgba(36,36,36,1)]">Flashcars</a></li>*@
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>

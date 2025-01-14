@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "Tu_vung1";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container_1 {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .vocab-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .vocab-item:last-child {
+                border-bottom: none;
+            }
+
+            .vocab-item .word {
+                flex: 1 1 100%;
+                font-size: 18px;
+                font-weight: bold;
+                color: #007BFF;
+            }
+
+            .vocab-item .type {
+                background-color: #f4f4f4;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+                color: #666;
+                display: inline-block;
+                margin-top: 5px;
+            }
+
+            .vocab-item .pronunciation {
+                font-style: italic;
+                color: #888;
+                margin-top: 5px;
+            }
+
+            .vocab-item .definition {
+                margin-top: 10px;
+                color: #333;
+            }
+
+            .vocab-item .example {
+                margin-top: 10px;
+                background-color: #f9f9f9;
+                padding: 10px;
+                border-left: 3px solid #007BFF;
+                color: #555;
+            }
+
+            .vocab-item img {
+                max-width: 100px;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container_1">
+        <h1>Vocabulary</h1>
+
+        <div class="vocab-item">
+            <div class="word">wipe off <span class="type">Cụm động từ</span></div>
+            <div class="pronunciation">/waɪp ɒf/ to remove something by using a cloth, one's hand, etc.</div>
+            <div class="definition">Use this cloth to wipe off that stain.</div>
+        </div>
+
+        <div class="vocab-item">
+            <div class="word">stay out of <span class="type">Cụm động từ</span></div>
+            <div class="pronunciation">/steɪ aʊt ɒv/ to avoid going into a certain place</div>
+            <div class="definition">You should stay out of this area.</div>
+            <img src="example-image1.jpg" alt="Keep out">
+        </div>
+
+        <div class="vocab-item">
+            <div class="word">clean up <span class="type">Cụm động từ</span></div>
+            <div class="pronunciation">/kliːn ʌp/ to make someone or something clean and neat</div>
+            <div class="definition">You need to clean up your room.</div>
+            <img src="example-image2.jpg" alt="Cleaning">
+        </div>
+
+        <div class="vocab-item">
+            <div class="word">take in <span class="type">Cụm động từ</span></div>
+            <div class="pronunciation">/teɪk ɪn/ to understand something; to accept that something is true</div>
+            <div class="definition">The fact that he won the lottery was hard for me to take in.</div>
+        </div>
+
+        <div class="vocab-item">
+            <div class="word">look up <span class="type">Cụm động từ</span></div>
+            <div class="pronunciation">/lʊk ʌp/ to try to find a piece of information in a book, on the internet, etc.</div>
+            <div class="definition">I need to look that word up in a dictionary.</div>
+            <img src="example-image3.jpg" alt="Dictionary">
+        </div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dialogue UI</title>
+            <style>
+                .body_1 {
+                    font-family: Arial, sans-serif;
+                    background-color: #f9f9f9;
+                    margin: 0;
+                    padding: 0;
+                    
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+
+                .dialogue-container {
+                    width: 750px;
+                    background-color: #ffffff;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    padding: 20px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+                .dialogue {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 15px;
+                }
+
+                .avatar {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: #ccc;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: #fff;
+                    margin-right: 15px;
+                }
+
+                .message {
+                    background-color: #f1f1f1;
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                    position: relative;
+                }
+
+                    .message:before {
+                        content: "";
+                        position: absolute;
+                        top: 10px;
+                        width: 0;
+                        height: 0;
+                    }
+
+                .dialogue.matt .avatar {
+                    background-color: #ffc107;
+                }
+
+                .dialogue.nina .avatar {
+                    background-color: #673ab7;
+                }
+
+                .dialogue.matt .message {
+                    background-color: #e3f2fd;
+                }
+
+                .dialogue.nina .message {
+                    background-color: #ede7f6;
+                }
+
+                .dialogue.matt .message:before {
+                    left: -10px;
+                    border-top: 10px solid transparent;
+                    border-right: 10px solid #e3f2fd;
+                    border-bottom: 10px solid transparent;
+                }
+
+                .dialogue.nina .message:before {
+                    right: -10px;
+                    border-top: 10px solid transparent;
+                    border-left: 10px solid #ede7f6;
+                    border-bottom: 10px solid transparent;
+                }
+
+                .dialogue.nina {
+                    flex-direction: row-reverse;
+                }
+
+                    .dialogue.nina .avatar {
+                        margin-right: 0;
+                        margin-left: 15px;
+                    }
+            </style>
+        </head>
+        <body class="body_1">
+            <div class="dialogue-container">
+                <div class="dialogue matt">
+                    <div class="avatar">M</div>
+                    <div class="message">Hey! Stay out of the kitchen!</div>
+                </div>
+                <div class="dialogue nina">
+                    <div class="avatar">N</div>
+                    <div class="message">Huh? Why? Are you cleaning up? Oh wow! You really are cleaning up! And you cooked something for lunch!</div>
+                </div>
+                <div class="dialogue matt">
+                    <div class="avatar">M</div>
+                    <div class="message">I’m planning to surprise Mom and Dad. They are coming over today. I want to show them how much I’ve changed.</div>
+                </div>
+                <div class="dialogue nina">
+                    <div class="avatar">N</div>
+                    <div class="message">I’m sorry, but I’m still trying to take all this in. I can’t believe you did all this by yourself. I mean, wow! Look at this place!</div>
+                </div>
+                <div class="dialogue matt">
+                    <div class="avatar">M</div>
+                    <div class="message">Well, it took me all day, to be honest. And I had to look up some recipes on the internet. I came across this lasagna recipe and thought I should give it a try. I hope they’ll like it.</div>
+                </div>
+                <div class="dialogue nina">
+                    <div class="avatar">N</div>
+                    <div class="message">That’s great! I’m sure they will, it smells so good!</div>
+                </div>
+                <div class="dialogue matt">
+                    <div class="avatar">M</div>
+                    <div class="message">Well, let’s hope it tastes good as well. Anyway, they’re going to be here in twenty minutes. I just have to wipe off the table and then it’s all set.</div>
+                </div>
+            </div>
+        </body>
+    </html>
+
+    </div>
+
+</body>
+</html>
+
+

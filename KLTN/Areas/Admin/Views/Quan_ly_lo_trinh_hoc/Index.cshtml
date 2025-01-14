@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý lộ trình học";
+    Layout = "~/Areas/Admin/Views/Shared/shared/_Layout_All.cshtml";
+    var listKhoaHoc = ViewBag.listKhoaHoc as List<KLTN.Entities.DmKhoaHoc>;
+    if (listKhoaHoc == null)
+    {
+        listKhoaHoc = new List<KLTN.Entities.DmKhoaHoc>();
+    }
+}
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">@ViewBag.Title</h4>
+        </div>
+        <div class="col-12">
+            <div class="col-10">
+            </div>
+            <a class="pull-right btn btn-info mb-4 col-2" href="javascript:void(0);" id="openModalBtn" data-toggle="modal" data-target=".bd-example-modal-lg">Thêm mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="display" style="min-width: 845px">
+                    <thead>
+                        <tr>
+                            <th style="width:3%">STT</th>
+                            <th style="width:20%">Tên lộ trình</th>
+                            <th style="width:20%">Khóa học</th>
+                            <th style="width:47%">Mô tả</th>
+                            <th style="width:10%">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.listsp != null && ((List<KLTN.Entities.LoTrinhHoc>)ViewBag.listsp).Any())
+                        {
+                            int i = 1;
+                            foreach (var item in (List<KLTN.Entities.LoTrinhHoc>)ViewBag.listsp)
+                            {
+
+                                <tr class="row-item">
+                                    <td style="width:3%">@i</td>
+                                    <td style="width:20%">@item.TenLoTrinh</td>
+                                    <td style="width:20%">
+                                        @(listKhoaHoc?.FirstOrDefault(x => x.Id == item.IdKhoaHoc)?.TenKhoaHoc ?? "")
+                                    </td>
+                                    <td>@item.NoiDung</td>
+                                    <td style="width:10%">
+                                        <div style="margin: auto; display: flex; justify-content: center; align-items: center; height: 100%;">
+                                            <a 
+                                               href="javascript:void(0);"
+                                               id="EditLoaiKhoaHoc"
+                                               data-id="@item.Id"
+                                               data-toggle="modal"
+                                               data-target=".bd-example-modal-lg"
+                                               style="color: #7ED321; font-size: 22px">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="@Url.Action("xoa", "Quan_ly_lo_trinh_hoc", new { id = item.Id })" style="color: #FF1616; font-size: 22px" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="exampleModall_Quan_ly_lo_trinh_hoc" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="GridViewModal_Quan_ly_lo_trinh_hoc" ">
+        </div>
+    </div>
+</div>
+<script>
+    (function ($) {
+    "use strict";
+
+    $(document).ready(function () {
+        // Lấy thông báo và cấu hình từ TempData
+        var message = '@TempData["ToastMessage"]';
+        var type = '@TempData["ToastType"]';
+        var customClass = '@TempData["ToastCustomClass"]'; // Lớp tùy chỉnh từ TempData
+
+        if (message) {
+            toastr.options = {
+                timeOut: 1500, // Thời gian hiển thị (ms)
+                closeButton: true, // Nút đóng
+                progressBar: true, // Thanh tiến trình
+                positionClass: "toast-top-right", // Vị trí hiển thị
+                toastClass: customClass || "toast", // Lớp CSS tùy chỉnh
+            };
+            switch (type) {
+                case "success":
+                    toastr.success(message, "Thành công");
+                    break;
+                case "info":
+                    toastr.info(message, "Thông báo");
+                    break;
+                case "warning":
+                    toastr.warning(message, "Cảnh báo");
+                    break;
+                case "error":
+                    toastr.error(message, "Lỗi");
+                    break;
+            }
+        }
+    });
+    })(jQuery);
+
+    $(document).ready(function () {
+        $(document).on('click', '#EditLoaiKhoaHoc', function () {
+            var khoaHocId = $(this).data('id');
+            $.ajax({
+                url: '/Admin/Quan_ly_lo_trinh_hoc/cap_nhat',
+                type: 'get',
+                data: { id: khoaHocId },
+                success: function (html) {
+                    $('#GridViewModal_Quan_ly_lo_trinh_hoc').html(html);
+                    $("#exampleModall_Quan_ly_lo_trinh_hoc").modal('show');
+                },
+                error: function (error) {
+                    console.error("Có lỗi xảy ra:", error);
+                }
+            });
+        });
+        $('#exampleModall_Quan_ly_lo_trinh_hoc').on('hidden.bs.modal', function () {
+            $('.row-item.selected').removeClass('selected');
+        });
+        $('#openModalBtn').on('click', function () {
+            $.ajax({
+                type: 'get',
+                url: '/Admin/Quan_ly_lo_trinh_hoc/them_moi',
+                success: function (html) {
+                    $('#GridViewModal_Quan_ly_lo_trinh_hoc').html(html);
+                    $("#exampleModall_Quan_ly_lo_trinh_hoc").modal('show');
+                },
+                error: function () {
+                    console.log("Error loading modal for new entry.");
+                }
+            })
+        });
+    });
+
+
+
+</script>

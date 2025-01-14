@@ -1,0 +1,245 @@
+﻿
+@{ ViewBag.Title = "Thêm mới khóa học";
+    ViewBag.hrf = "quan_ly_khoa_hoc";
+    Layout = "~/Areas/Admin/Views/Shared/shared/_Layout_All.cshtml";
+    var listLoaiKhoaHoc = ViewBag.listLoaiKhoaHoc as List<KLTN.Entities.HtPhanMuc>;
+    if (listLoaiKhoaHoc == null)
+    {
+        listLoaiKhoaHoc = new List<KLTN.Entities.HtPhanMuc>();
+    }
+}
+<style>
+    .image-container {
+        margin-top: 20px;
+    }
+
+    .image-preview {
+        display: inline-block;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .img-bg {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        padding-bottom: 100%;
+    }
+
+    .image-remove::after {
+        content: "✖";
+        font-size: 14px;
+        color: white;
+    }
+
+    .image-remove {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: center;
+        line-height: 24px;
+        z-index: 1;
+        cursor: pointer;
+    }
+</style>
+<script>
+    function add_imgproduct() {
+        document.getElementById("input-fileImgProduct").click();
+    }
+    function add_imgproductdetail() {
+        document.getElementById("input-fileImgProductdetail").click();
+    }</script>
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>@ViewBag.Title</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Admin/@ViewBag.hrf">Quản lý khóa học</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">@ViewBag.Title</a></li>
+        </ol>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form method="post" id="form_themmoi_khoahoc" enctype="multipart/form-data" action="@Url.Action("them_moi",ViewBag.hrf)">
+            <div class="form-validation">
+                <div class="row">
+                    <div class="col-xl-6 ">
+                        <div class="form-group form-group-img AnhProduct">
+                            <div class="row" id="AnhProduct">
+                                <label class="col-lg-6 p-2 col-form-label position-relative">
+                                    <span class="col-form-label">Hình ảnh</span>
+                                    <img src="" class="img-thumbnail" id="fileImgProduct-img">
+                                    <button type="button" class="btn-close" id="btnRemoveImage" onclick="removeImage()" style="display: none;">×</button>
+                                    <input type="file" id="input-fileImgProduct" name="fileImage" style="display: none;" onchange="SelectedImage(event)">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-6 p-2 col-form-label">
+                                <a class="form-group-a add_imgproduct" onclick="add_imgproduct()" href="javascript:;">Thêm ảnh khóa học</a>
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Tên khóa học:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input class="form-control" id="val-TenKhoaHoc" name="val_TenKhoaHoc" placeholder="Tên sản phẩm...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Tên giáo viên:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input class="form-control" id="val-TenGiaoVien" name="val_TenGiaoVien" placeholder="Tên Giáo Viên...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Phân loại:
+                            </label>
+                            <div class="col-lg-8 p-2 SelctPhanLoai">
+                                <select class="form-control" id="val-PhanLoaiSanPham" name="val_PhanLoaiKhoaHoc">
+                                    <option value="">--Chọn loại khóa học--</option>
+                                    @foreach (var item in listLoaiKhoaHoc)
+                                    {
+                                        <option value="@item.Id">@item.TenPhanMuc</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-top:6px" class="form-group row">
+                            <label class="col-lg-3 p-2 col-form-label">
+                                Mã quyền:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input class="form-control" id="val_ma_quyen" name="val_maquyen" title="Mã quyền" placeholder="Mã quyền..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Mô tả:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <textarea rows="4" class="form-control" id="val-Mota" name="val_Mota" placeholder="Mô tả khóa học..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Giá:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input class="form-control" id="val-Gia" name="val_Gia" title="Giá sản phẩm ban đầu nhập các số đầu" placeholder="Giá sản phẩm..." />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label style="margin-top:6px" class="col-lg-3 p-2 col-form-label">
+                                Giảm giá:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input class="form-control" id="val-GiamGia" name="val_GiamGia" title="Giảm giá theo %" placeholder="Giảm giá..." />
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top:6px" class="form-group row">
+                            <label class="col-lg-3 p-2 col-form-label">
+                                Tình trạng:
+                            </label>
+                            <div class="col-lg-8 p-2">
+                                <input name="val_tinhtrang" class="styled-checkbox" type="checkbox" value="true" ) />
+                            </div>
+                        </div>
+
+                        @*<div class="form-group  form-group-img AnhProduct">
+            <div class="row" id="AnhProduct">
+                <label class="col-lg-6 p-2 col-form-label">
+                    <span class="col-form-label">Hình ảnh</span>
+                    <img src="" class="img-thumbnail" id="fileImgProduct-img">
+                    <input type="file" id="input-fileImgProduct" name="fileImage" style="display: none;" onchange="SelectedImage(event)">
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-6 p-2 col-form-label"><a class="form-group-a add_imgproduct" onclick="add_imgproduct()" href="javascript:;"> Thêm video bài giảng</a></label>
+        </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-8 ml-auto" style="padding-left: 28px;">
+                    <button type="submit" class="btn btn-success" style="width: 95px;">Lưu</button>
+                    <button type="reset" class="btn btn-danger" style="width: 95px;">Reset</button>
+                    <a href="/Admin/@ViewBag.hrf" class="btn btn-primary" style="width: 95px;">Trở lại</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    function SelectedImage(event) {
+        var input = event.target; // Lấy input file
+        var file = input.files[0]; // Lấy file đầu tiên từ danh sách files của input
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgElement = document.getElementById('fileImgProduct-img');
+                var removeBtn = document.getElementById('btnRemoveImage');
+                imgElement.src = e.target.result;  // Gán dữ liệu ảnh vào thẻ img
+                imgElement.classList.remove('img-thumbnail-hidden');
+                imgElement.classList.add('img-thumbnail');
+                document.querySelector('.add_imgproduct').textContent = 'Thay đổi hình ảnh';
+
+                // Hiển thị nút xóa khi có ảnh
+                removeBtn.style.display = 'block';
+            };
+            reader.readAsDataURL(file); // Đọc file ảnh dưới dạng URL
+        }
+    }
+
+    function removeImage() {
+        var imgElement = document.getElementById('fileImgProduct-img');
+        var removeBtn = document.getElementById('btnRemoveImage');
+        imgElement.src = ""; // Xóa ảnh hiện tại
+        imgElement.classList.remove('img-thumbnail');
+        imgElement.classList.add('img-thumbnail-hidden');
+        document.querySelector('.add_imgproduct').textContent = 'Thêm ảnh khóa học'; // Đặt lại nút
+
+        // Ẩn nút xóa khi không có ảnh
+        removeBtn.style.display = 'none';
+
+        // Reset input file để cho phép chọn ảnh lại nếu cần
+        document.getElementById('input-fileImgProduct').value = "";
+    }
+
+    function add_imgproduct() {
+        document.getElementById('input-fileImgProduct').click(); // Kích hoạt input file
+    }
+
+    document.getElementById('form_themmoi_khoahoc').onsubmit = function () {
+        var checkbox = document.querySelector('input[name="val_tinhtrang"]');
+        if (checkbox.checked) {
+            checkbox.value = "true";
+        } else {
+            checkbox.value = "false";
+        }
+    };
+
+</script>

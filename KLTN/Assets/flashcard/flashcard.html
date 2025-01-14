@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Tiếng Anh Theo Chủ Đề</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topic-container">
+    <button onclick="loadTopic('animals')">Động vật</button>
+    <button onclick="loadTopic('family')">Gia đình</button>
+    <button onclick="loadTopic('work')">Công việc</button>
+  </div>
+
+  <div class="flashcard-container">
+    <div class="flashcard" id="flashcard">
+      <div class="front">
+        <p id="english-word"></p>
+      </div>
+      <div class="back">
+        <p id="meaning"></p>
+      </div>
+    </div>
+    <button onclick="nextCard()">Từ mới</button>
+  </div>
+
+  <!-- Danh sách từ vựng theo chủ đề (ẩn đi) -->
+  <div id="vocabulary-data" style="display: none;">
+    <div data-topic="animals">
+      <div data-word="Dog" data-meaning="Con chó" data-audio="sounds/dog.mp3"></div>
+      <div data-word="Cat" data-meaning="Con mèo" data-audio="sounds/cat.mp3"></div>
+      <!-- Thêm 48 từ khác cho bộ Động vật -->
+    </div>
+    <div data-topic="family">
+      <div data-word="Mother" data-meaning="Mẹ" data-audio="sounds/mother.mp3"></div>
+      <div data-word="Father" data-meaning="Cha" data-audio="sounds/father.mp3"></div>
+      <!-- Thêm 48 từ khác cho bộ Gia đình -->
+    </div>
+    <div data-topic="work">
+      <div data-word="Computer" data-meaning="Máy tính" data-audio="sounds/computer.mp3"></div>
+      <div data-word="Office" data-meaning="Văn phòng" data-audio="sounds/office.mp3"></div>
+      <!-- Thêm 48 từ khác cho bộ Công việc -->
+    </div>
+  </div>
+
+  <script src="scripy.js"></script>
+</body>
+</html>

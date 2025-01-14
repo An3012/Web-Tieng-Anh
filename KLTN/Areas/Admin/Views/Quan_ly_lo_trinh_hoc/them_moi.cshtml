@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Thêm mới lộ trình học";
+    var listKhoaHoc = ViewBag.listKhoaHoc as List<KLTN.Entities.DmKhoaHoc>;
+    if (listKhoaHoc == null)
+    {
+        listKhoaHoc = new List<KLTN.Entities.DmKhoaHoc>();
+    }
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="modalTitle">@ViewBag.Title</h5>
+    <button type="button" class="close" data-dismiss="modal">
+        <span>&times;</span>
+    </button>
+</div>
+
+<form id="formThemMoi" method="post" action="@Url.Action("xl_them_moi","Quan_ly_lo_trinh_hoc")" enctype="multipart/form-data">
+    <div class="modal-body" id="modalBody">
+        <div class="form-validation">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label">
+                            Tên lộ trình học (<span class="tx-danger">*</span>):
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <input class="form-control" id="val_TenLoTrinh" name="val_TenLoTrinh" placeholder="Tên lộ trình học...">
+                        </div>
+                        <div id="messageContainer"></div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label">
+                            Khóa học(<span class="tx-danger">*</span>):
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <select class="form-control" id="val_IdKhoaHoc" name="val_IdKhoaHoc">
+                                <option value="">--Chọn khóa học--</option>
+                                @foreach (var item in listKhoaHoc)
+                                {
+                                    <option value="@item.Id">@item.TenKhoaHoc</option>
+                                }
+                            </select>
+                        </div>
+                        <div id="messageContainerLoaiKhoaHoc"></div>
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label">
+                            Mô tả lộ trình học:
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <textarea rows="1" class="form-control" id="val_mota_Quan_ly_lo_trinh_hoc" name="val_mota" placeholder="Mô tả lộ trình học..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $("#formThemMoi").on("submit", function (event) {
+            event.preventDefault();
+            var loaiKhoaHoc = $("#val_TenLoTrinh").val();
+            var loaiPhanLoai = $("#val_IdKhoaHoc").val();
+            var isValid = true;
+            if (!loaiKhoaHoc) {
+                $("#messageContainer").html("<div class='tx-danger p-15'>Tên loại khóa học không được để trống.</div>");
+                isValid = false;
+            } else {
+                $("#messageContainer").html("");
+            }
+            if (!loaiPhanLoai) {
+                $("#messageContainerLoaiKhoaHoc").html("<div class='tx-danger p-15'>Bạn phải chọn loại lộ trình học.</div>");
+                isValid = false;
+            } else {
+                $("#messageContainerLoaiKhoaHoc").html("");
+            }
+            if (isValid) {
+                this.submit();
+            }
+        });
+    });
+
+</script>

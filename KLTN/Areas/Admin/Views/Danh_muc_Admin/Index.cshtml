@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý tài khoản quản trị";
+    Layout = "~/Areas/Admin/Views/Shared/shared/_Layout_All.cshtml";
+    var listnhomQuyen = ViewBag.listNhomQuyen as List<KLTN.Entities.HtNhomQuyen>;
+    if (listnhomQuyen == null)
+    {
+        listnhomQuyen = new List<KLTN.Entities.HtNhomQuyen>();
+    }
+}
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">@ViewBag.Title</h4>
+        </div>
+        <div class="col-12">
+            <div class="col-10">
+            </div>
+            <a class="pull-right btn btn-info mb-4 col-2" href="javascript:void(0);" id="openModalBtn" data-toggle="modal" data-target=".bd-example-modal-lg">Thêm mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="display" style="min-width: 845px">
+                    <thead>
+                        <tr>
+                            <th style="width:5%">STT</th>
+                            <th style="width:20%">Họ và tên</th>
+                            <th style="width:20%">Tên tài khoản</th>
+                            <th style="width:30%">Email</th>
+                            <th style="width:10%">Nhóm quyền</th>
+                            <th style="width:10%">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.listsp != null && ((List<KLTN.Entities.HtNguoiDung>)ViewBag.listsp).Any())
+                        {
+                            int i = 1;
+                            foreach (var item in (List<KLTN.Entities.HtNguoiDung>)ViewBag.listsp)
+                            {
+
+                                <tr class="row-item">
+                                    <td>@i</td>
+                                    <td>@item.HoVaTen</td>
+                                    <td>@item.TenDangNhap</td>
+                                    <td>
+                                        @item.Email
+                                    </td>
+                                    <td>@listnhomQuyen.FirstOrDefault(x => x.Id == item.IdNhomQuyen).Ten</td>
+                                    <td>
+                                        <div style="margin: auto; display: flex; justify-content: center; align-items: center; height: 100%;">
+                                            <a href="javascript:void(0);"
+                                               id="EditLoaiKhoaHoc"
+                                               data-id="@item.Id"
+                                               data-toggle="modal"
+                                               data-target=".bd-example-modal-lg"
+                                               style="color: #7ED321; font-size: 22px">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="@Url.Action("xoa", "Danh_muc_Admin", new { id = item.Id })" style="color: #FF1616; font-size: 22px" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="exampleModall_Danh_muc_Admin" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content" id="GridViewModal_Danh_muc_Admin" ">
+        </div>
+    </div>
+</div>
+<script>
+    (function ($) {
+    "use strict";
+
+    $(document).ready(function () {
+        // Lấy thông báo và cấu hình từ TempData
+        var message = '@TempData["ToastMessage"]';
+        var type = '@TempData["ToastType"]';
+        var customClass = '@TempData["ToastCustomClass"]'; // Lớp tùy chỉnh từ TempData
+
+        if (message) {
+            toastr.options = {
+                timeOut: 1500, // Thời gian hiển thị (ms)
+                closeButton: true, // Nút đóng
+                progressBar: true, // Thanh tiến trình
+                positionClass: "toast-top-right", // Vị trí hiển thị
+                toastClass: customClass || "toast", // Lớp CSS tùy chỉnh
+            };
+            switch (type) {
+                case "success":
+                    toastr.success(message, "Thành công");
+                    break;
+                case "info":
+                    toastr.info(message, "Thông báo");
+                    break;
+                case "warning":
+                    toastr.warning(message, "Cảnh báo");
+                    break;
+                case "error":
+                    toastr.error(message, "Lỗi");
+                    break;
+            }
+        }
+    });
+    })(jQuery);
+
+    $(document).ready(function () {
+        $(document).on('click', '#EditLoaiKhoaHoc', function () {
+            var khoaHocId = $(this).data('id');
+            $.ajax({
+                url: '/Admin/Danh_muc_Admin/cap_nhat',
+                type: 'get',
+                data: { id: khoaHocId },
+                success: function (html) {
+                    $('#GridViewModal_Danh_muc_Admin').html(html);
+                    $("#exampleModall_Danh_muc_Admin").modal('show');
+                },
+                error: function (error) {
+                    console.error("Có lỗi xảy ra:", error);
+                }
+            });
+        });
+        $('#exampleModall_Danh_muc_Admin').on('hidden.bs.modal', function () {
+            $('.row-item.selected').removeClass('selected');
+        });
+        $('#openModalBtn').on('click', function () {
+            $.ajax({
+                type: 'get',
+                url: '/Admin/Danh_muc_Admin/them_moi',
+                success: function (html) {
+                    $('#GridViewModal_Danh_muc_Admin').html(html);
+                    $("#exampleModall_Danh_muc_Admin").modal('show');
+                },
+                error: function () {
+                    console.log("Error loading modal for new entry.");
+                }
+            })
+        });
+    });
+</script>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/slick.css" />
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/owl.carousel.js" type="text/javascript"></script>
+    <script src="./js/jquery.fancybox.min.js" type="text/javascript"></script>
+    <script src="./js/slick.js" type="text/javascript"></script>
+    <script src="./js/script.js" type="text/javascript"></script>
+    <title>English Fullbright</title>
+</head>
+
+<body class="m-0 p-0">
+   <div class="h-full w-full bg-black/50 absolute z-40 transition-all hidden" id="navBackdrop" onclick="toggleNavMobile()"></div>
+    <nav class="w-[280px] bg-white shadow h-full py-6 px-4 absolute -translate-x-[280px] transition-all z-50" id="navMobile">
+        <ul class="flex flex-col uppercase m-0 p-0 text-sm text-[rgba(36,36,36,1)] font-normal">
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Home</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Introduction</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200"></a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Course</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">News</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Skills</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">Online class</a></li>
+            <li><a href="#" class="text-[rgba(36,36,36,1)] block py-3 border-b border-gray-200">AI</a></li>
+        </ul>
+    </nav>
+    <header class="bg-gradient text-white relative z-20">
+        <!-- Top Bar -->
+        <div class="container max-w-[1320px] mx-auto hidden xl:flex justify-between items-center p-2">
+            <div class="flex items-center space-x-4">
+                <a href="tel:0974624069" class="flex space-x-1 items-center justify-start">
+                    <img src="/Image/phone.png" alt="Phone" class="h-4 w-4" />
+                    <span class="text-[13px] font-semibold">0989.432.291</span>
+                </a>
+                <a href="#" class="flex space-x-1 items-center justify-start">
+                    <img src="/Image/location.png" alt="Location" class="h-4 w-4" />
+                    <span class="text-[13px] font-semibold">Contact</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-10">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-[13px] font-semibold">English-Learning make a better life </a>
+                    <a href="#" class="hover:underline text-[13px] font-semibold">English-Advance</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-sm">
+                        <img src="/Image/langua1.png" alt="Langua 1" class="w-6 h-6" />
+                    </a>
+                    <a href="#" class="hover:underline text-sm">
+                        <img src="/Image/langua2.png" alt="Langua 2" class="w-6 h-6" />
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:underline text-sm"
+                        onclick="toggleSeachForm()"
+                    >
+                        <img src="/Image/search.png" alt="Langua 1" class="w-4 h-4" />
+                    </a>
+                    <a href="#" class="hover:underline text-sm"
+                        onclick="toggleNavMobile()"
+                    >
+                        <img src="/Image/iconBar.png" alt="Langua 2" class="w-5 h-4 object-contain" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header -->
+        <div class="bg-white shadow z-20 relative">
+            <div class="container max-w-[1320px] mx-auto flex justify-between items-center p-4">
+                <div class="mr-10 xl:mr-20 flex items-center justify-start space-x-4">
+                    <div class="flex xl:hidden justify-center items-center h-12 w-12">
+                        <a href="javascript:;" id="toggleNavMobile" class="h-10 w-10 flex justify-center items-center"
+                            onclick="toggleNavMobile()"
+                        >
+                            <img src="/Image/IconNavDark.png" alt="Icon Nav Mobile" class="w-7 h-3" />
+                        </a>
+                    </div>
+                    <a href="/" id="logoSite">
+                        <img src="/Image/logoenglish1.jpg" alt="Logo" class="h-12 mr-2"> <!-- Thay thế với URL logo của bạn -->
+                    </a>
+                </div>
+                        <nav
+                            class="hidden xl:flex space-x-6 flex-1 justify-end main-menu">
+                            <ul
+                                class="navbar relative flex justify-between m-0 p-0 space-x-3 lg:space-x-3 xl:space-x-8 text-sm text-[rgba(36,36,36,1)] font-normal">
+                                <li>
+                                    <a href="/index.html"
+                                        class="text-[rgba(36,36,36,1)] uppercase">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/aboutus.html"
+                                        class="text-[rgba(36,36,36,1)] uppercase">introduction</a>
+                                </li>
+                               
+                                </li>
+                                <li class="group">
+                                    <a href="courses.html"
+                                        class="text-[rgba(36,36,36,1)] uppercase">Courses</a>
+                                    <div
+                                        class="mega-menu  bg-white shadow-2xl shadow-black/50 rounded-2xl absolute left-2/2 -translate-x-2/2 top-[100%] invisible opacity-0 translate-y-10 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                                        <div
+                                            class="grid grid-flow-row overflow-hidden rounded-2xl">
+                                            <div
+                                                class="col-span-1 border-r border-gray-300 p-[30px]">
+                                                <ul class="menu-mega-vertical">
+                                                    <li class="active"
+                                                        data-tab="01">
+                                                        <a href="#">Speaking Course</a>
+                                                    </li>
+                                                    <li data-tab="02">
+                                                        <a href="#">Writing Course</a>
+                                                    </li>
+                                                    <li data-tab="03">
+                                                        <a href="#">Reading Course</a>
+                                                    </li>
+                                                    <li data-tab="04">
+                                                        <a href="#">Listening Course</a>
+                                                    </li>
+                                                    <li data-tab="05">
+                                                        <a href="#">grammar course</a>
+                                                    </li>
+                                                    <li data-tab="06">
+                                                        <a href="#">Vocabulary</a>
+                                                    </li>
+                                                
+                                                </ul>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <a href="/skills/skillspage.html"
+                                        class="text-[rgba(36,36,36,1)] uppercase">Skills</a>
+                                    <div
+                                    class="mega-menu  bg-white shadow-2xl shadow-black/50 rounded-2xl absolute left-2/5 -translate-x-2/2 top-[100%] invisible opacity-0 translate-y-10 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                                        <div
+                                            class="grid grid-flow-row grid-cols-1 overflow-hidden rounded-2xl">
+                                            <div
+                                                class="col-span-1 border-r border-gray-300 p-[30px]">
+                                                <ul class="menu-mega-vertical">
+                                                    <li class="active"
+                                                        data-tab="01">
+                                                        <a href="/skills/speaking.html">Speaking</a>
+                                                    </li>
+                                                    <li data-tab="02">
+                                                        <a href="/skills/reading.html">Reading</a>
+                                                    </li>
+                                                    <li data-tab="03">
+                                                        <a href="/skills/listening.html">Listening</a>
+                                                    </li>
+                                                    <li data-tab="04">
+                                                        <a href="/skills/writing.html">Writing</a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <a href="homenews.html"
+                                        class="text-[rgba(36,36,36,1)] uppercase">News</a>
+
+                                </li>
+                                <li><a href="#"
+                                        class="text-[rgba(36,36,36,1)] uppercase">Online
+                                        class</a></li>
+                               
+                            </ul>
+                        </nav>
+                <div class="flex xl:hidden items-center space-x-4">
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex">
+                            <img src="/Image/langua1.png" alt="Langua 1" class="w-6 h-6" />
+                        </a>
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex">
+                            <img src="/Image/langua2.png" alt="Langua 2" class="w-6 h-6" />
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="hover:underline text-sm h-12 w-12 justify-center items-center flex"
+                            onclick="toggleSeachForm()"
+                        >
+                            <img src="/Image/search-dark.png" alt="Langua 1" class="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100/50 absolute w-full py-3 -translate-y-16 z-10 transition-all px-4" id="formSearch">
+            <div class="container mx-auto max-w-[1320px] relative">
+                <input type="text" placeholder="Nhập tìm kiếm" class="h-11 w-full rounded-full border border-gray-100 px-4 placeholder:text-gray-300" />
+                <a href="#" class="absolute top-1/2 right-4 -translate-y-1/2">
+                    <img src="/Image/search-dark.png" alt="Langua 1" class="w-4 h-4" />
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="m-0 p-0">
+        <section class="p-0 m-0 relative h-[150px] lg:h-[450px] header-page-daht flex items-end">
+            <div class="container max-w-[1320px] mx-auto pb-12 px-4">
+                <div class="py-2 text-white text-[11px] flex line-clamp-1 space-x-0 lg:space-x-3 items-center mb-2 whitespace-nowrap">
+                    <a class="whitespace-nowrap" href="/"></a>
+                    <img src="/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+                    <span class=" line-clamp-1"></span>
+                </div>
+                <h1 class="text-white text-2xl xl:text-5xl font-bold"></h1>
+            </div>
+        </section>
+        <section id="section_01" class="py-6 lg:py-[60px] bg-[#fff ]">
+            <div class="container max-w-[1320px] mx-auto px-6 lg:px-4">
+                <div class="block_title flex justify-between items-center mb-10">
+                    <h2 class="text-3xl lg:text-[50px] leading-8 lg:leading-[50px] text-black font-medium">Skills</h2>
+                    <div class="readmore ">
+                        <a href="#" class="group inline-flex justify-center items-center space-x-2 px-0 py-3 rounded-lg transition-all">
+                            <span class="text-[16px] font-medium whitespace-nowrap transition-all">Xem thêm</span>
+                            <img src="/Image/icon/navigation/arrow_downward.png" alt="Arrow" class="w-[24px] max-w-[24px] h-[14px]" />
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-flow-row grid-cols-1 lg:grid-cols-2 items-strecth justify-center gap-6">
+                    <div class="relative">
+                        <div class="w-full h-[250px] lg:h-[864px]">
+                            <a href="#">
+                                <img src="/Image/study_english1.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-full object-cover" />
+                            </a>
+                        </div>
+                        <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                            <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                <a href="#">4 skills in english</a>
+                            </h3>
+                            <p class="text-base leading-7 text-[#fff] text-left line-clamp-4 hidden lg:block"> thiết kế theo lộ trình từ dễ đến khó <br /> theo trình tự nghe nói đọc viết</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-6">
+                        <div class="relative flex-1">
+                            <div class="w-full h-full">
+                                <a href="/skills/listening.html">
+                                    <img src="/Image/liskill.avif" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-full object-cover" />
+                                </a>
+                            </div>
+                            <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                                <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                    <a href="/skills/listening.html" class="text-[#fff]">listening skill</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="relative flex-1">
+                            <div class="h-full w-full">
+                                <a href="/skills/reading.html">
+                                    <img src="/Image/readingskill.webp" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-full object-cover" />
+                                </a>
+                            </div>
+                            <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                                <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                    <a href="/skills/reading.html">Reading Skill</a>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 gap-6">
+                    <div class="relative flex-1">
+                        <div class="w-full h-full">
+                            <a href="/skills/speaking.html">
+                                <img src="/Image/speakingskill.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-[420px] object-cover" />
+                            </a>
+                        </div>
+                        <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                            <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                <a href="/skills/speaking.html" class="text-[#fff]">Speaking Skill</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="relative flex-1">
+                        <div class="w-full h-full">
+                            <a href="/skills/writing.html">
+                                <img src="/Image/writingskill.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-[420px] object-cover" />
+                            </a>
+                        </div>
+                        <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                            <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                <a href="/skills/writing.html" class="text-[#fff]">Writing Skill</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination text-center mt-6">
+                    <ul class="">
+                        <li><a class="page active" href="#">1</a></li>
+                        <li><a class="page" href="#">2</a></li>
+                        <li><a class="page" href="#">3</a></li>
+                        <li><a class="page" href="#">4</a></li>
+                        <li><a class="page" href="#">...</a></li>
+                        <li><a href="#">Trang kế tiếp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    <footer id="footer" class="pt-16 pb-10 bg-[#ECEEF0]">
+        <div class="container max-w-[1320px] mx-auto px-4 hidden xl:block">
+            <div
+                class="grid grid-flow-row grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <div class>
+                    <h3
+                        class="text-base font-semibold text-[#242424] mb-2">Introduction</h3>
+                    <ul class="m-0 p-0 text-[#242424]">
+                        <li class="m-0 px-0 py-2"><a href="#">History of creativity</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class>
+                    <h3
+                        class="text-base font-semibold text-[#242424] mb-2">Course</h3>
+                    <ul class="m-0 p-0 text-[#242424]">
+                        <li class="m-0 px-0 py-2"><a href="#">speaking course</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#">reading course</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class>
+                    <h3
+                        class="text-base font-semibold text-[#242424] mb-2">Service</h3>
+                    <ul class="m-0 p-0 text-[#242424]">
+                        <li class="m-0 px-0 py-2"><a href="#"> score essay </a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"> 1:1 tutor</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class>
+                    <h3
+                        class="text-base font-semibold text-[#242424] mb-2">collabration</h3>
+                    <ul class="m-0 p-0 text-[#242424]">
+                        <li class="m-0 px-0 py-2"><a href="#"></a>BBC learning english</li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a>Postcard </li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class>
+                    <h3
+                        class="text-base font-semibold text-[#242424] mb-2">resourse</h3>
+                    <ul class="m-0 p-0 text-[#242424]">
+                        <li class="m-0 px-0 py-2"><a href="#">7.0</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#">8.0</a></li>
+                        <li class="m-0 px-0 py-2"><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-gray-400 my-10">
+            <div class="flex flex-row space-x-8">
+                <div class="logo">
+                    <a href="#">
+                        <img src="./Image/logoenglish.jpg" alt="Logo footer"
+                            class="w-[172px] h-[110px]" />
+                    </a>
+                </div>
+                <div class="flex justify-between items-start flex-1">
+                    <div class="address flex flex-col space-y-3">
+                        <h3
+                            class="text-base font-semibold text-[#242424] mb-2"> English-learning </h3>
+                        <p>12- Xuan Hoa - Phuc Yen - Vinh Phuc</p>
+                        <p>Email: 217480201014@hpu2.edu.vn</p>
+                        <p>Contact: 0989.432.291</p>
+                        <p>Fax: 0989666302</p>
+                    </div>
+                    <div>
+                        <select name="weblink" id="weblink"
+                            class="bg-transparent ">
+                            <option value="0">Website đơn vị thành
+                                viên</option>
+                            <option value="1">Website liên kết 1</option>
+                            <option value="2">Website liên kết 2</option>
+                            <option value="3">Website liên kết 3</option>
+                            <option value="4">Website liên kết 4</option>
+                            <option value="5">Website liên kết 5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="credit bg-gradient py-[14px]">
+        <div class="container max-w-[1320px] mx-auto flex flex-col lg:flex-row space-y-4 justify-between items-center px-4">
+            <div class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 items-center justify-start text-white text-sm">
+                <p class="text-center">Bản quyền © 2024 thuộc về Fullbright English. Phạm Duy Kiều </p>
+                <div class="flex justify-center items-center space-x-4">
+                    <a href="#">Điều khoản & Điều kiện</a>
+                    <a href="#">Quyền riêng tư dữ liệu</a>
+                </div>
+            </div>
+            <div class="social flex space-x-4">
+                <a href="#">
+                    <img src="./Image/social1.png" alt="Social 1" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="#">
+                    <img src="./Image/social2.png" alt="Social 1" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="#">
+                    <img src="./Image/social3.png" alt="Social 1" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="#">
+                    <img src="./Image/social4.png" alt="Social 1" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="#">
+                    <img src="./Image/social5.png" alt="Social 1" class="w-7 h-7 object-contain" />
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

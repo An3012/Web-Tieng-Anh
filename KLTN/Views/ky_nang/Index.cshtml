@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+<main class="m-0 p-0">
+    <section class="p-0 m-0 relative h-[150px] lg:h-[450px] header-page-daht-ti flex items-end">
+        <div class="container max-w-[1320px] mx-auto pb-12 px-4">
+            <div class="py-2 text-white text-[11px] flex line-clamp-1 space-x-0 lg:space-x-3 items-center mb-2 whitespace-nowrap">
+                <a class="whitespace-nowrap" href="/"></a>
+                <img src="~/Assets/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+                <span class=" line-clamp-1"></span>
+            </div>
+            <h1 class="text-white text-2xl xl:text-5xl font-bold"></h1>
+        </div>
+    </section>
+    <section id="section_01" class="py-6 lg:py-[60px] bg-[#fff ]">
+        <div class="container max-w-[1320px] mx-auto px-6 lg:px-4">
+            <div class="block_title flex justify-between items-center mb-10">
+                <h2 class="text-3xl lg:text-[50px] leading-8 lg:leading-[50px] text-black font-medium">Skills</h2>
+                <div class="readmore ">
+                    <a href="#" class="group inline-flex justify-center items-center space-x-2 px-0 py-3 rounded-lg transition-all">
+                        <span class="text-[16px] font-medium whitespace-nowrap transition-all">Xem thêm</span>
+                        <img src="/Assets/Image/icon/navigation/arrow_downward.png" alt="Arrow" class="w-[24px] max-w-[24px] h-[14px]" />
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-flow-row grid-cols-1 lg:grid-cols-2 items-strecth justify-center gap-6">
+                <div class="relative">
+                    <div class="w-full h-[250px] lg:h-[864px]">
+                        <a href="#">
+                            <img src="/Assets/Image/study_english1.jpg" alt="" class="w-full h-[250px] lg:h-full object-cover" />
+                        </a>
+                    </div>
+                    <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                        <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                            <a href="#">4 skills in english</a>
+                        </h3>
+                        <p class="text-base leading-7 text-[#fff] text-left line-clamp-4 hidden lg:block"> thiết kế theo lộ trình từ dễ đến khó <br /> theo trình tự nghe nói đọc viết</p>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <div class="relative flex-1">
+                        <div class="w-full h-full">
+                            <a href="/ky_nang/listening">
+                                <img src="~/Assets/Image/anhluot4.jpg" alt="" class="w-full h-[250px] lg:h-full object-cover" />
+                            </a>
+                        </div>
+                        <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                            <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                <a href="/ky_nang/listening" class="text-[#fff]">listening skill</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="relative flex-1">
+                        <div class="h-full w-full">
+                            <a href="/ky_nang/reading">
+                                <img src="~/Assets/Image/reading-skills.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-full object-cover" />
+                            </a>
+                        </div>
+                        <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                            <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                                <a href="/ky_nang/reading">Reading Skill</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 gap-6">
+                <div class="relative flex-1">
+                    <div class="w-full h-full">
+                        <a href="/ky_nang/speaking">
+                            <img src="/Assets/Image/speakingskill.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-[420px] object-cover" />
+                        </a>
+                    </div>
+                    <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                        <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                            <a href="/ky_nang/speaking" class="text-[#fff]">Speaking Skill</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="relative flex-1">
+                    <div class="w-full h-full">
+                        <a href="/ky_nang/writing">
+                            <img src="/Assets/Image/writingskill.jpg" alt="Dụ án hoàn thành" class="w-full h-[250px] lg:h-[420px] object-cover" />
+                        </a>
+                    </div>
+                    <div class="w-full absolute bottom-0 left-0 px-5 py-[30px]">
+                        <h3 class="text-[#fff] text-xl lg:text-[32px] font-bold mb-2.5">
+                            <a href="/ky_nang/writing" class="text-[#fff]">Writing Skill</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination text-center mt-6">
+                <ul class="">
+                    <li><a class="page active" href="#">1</a></li>
+                    <li><a class="page" href="#">2</a></li>
+                    <li><a class="page" href="#">3</a></li>
+                    <li><a class="page" href="#">4</a></li>
+                    <li><a class="page" href="#">...</a></li>
+                    <li><a href="#">Trang kế tiếp</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+

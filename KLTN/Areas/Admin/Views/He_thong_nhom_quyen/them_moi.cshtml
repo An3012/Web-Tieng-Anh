@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Thêm mới nhóm quyền";
+
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="modalTitle">@ViewBag.Title</h5>
+    <button type="button" class="close" data-dismiss="modal">
+        <span>&times;</span>
+    </button>
+</div>
+
+<form id="formThemMoi" method="post" action="@Url.Action("xl_them_moi","He_thong_nhom_quyen")" enctype="multipart/form-data">
+    <div class="modal-body" id="modalBody">
+        <div class="form-validation">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label">
+                            Tên nhóm quyền (<span class="tx-danger">*</span>):
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <input class="form-control" id="val_He_thong_nhom_quyen" name="val_He_thong_nhom_quyen" placeholder="Tên nhóm quyền...">
+                        </div>
+                        <div id="messageContainer"></div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label">
+                            Mô tả nhóm quyền:
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <textarea rows="1" class="form-control" id="val_mo_ta_He_thong_nhom_quyen" name="val_mo_ta" placeholder="Mô tả nhóm quyền..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $("#formThemMoi").on("submit", function (event) {
+            event.preventDefault();
+            var loaiKhoaHoc = $("#val_He_thong_nhom_quyen").val();
+            var isValid = true;
+            if (!loaiKhoaHoc) {
+                $("#messageContainer").html("<div class='tx-danger p-15'>Tên nhóm quyền không được để trống.</div>");
+                isValid = false;
+            } else {
+                $("#messageContainer").html("");
+            }
+            if (isValid) {
+                this.submit();
+            }
+        });
+    });
+
+</script>

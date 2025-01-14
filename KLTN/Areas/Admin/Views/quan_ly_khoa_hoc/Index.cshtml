@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Quản Lý Khóa Học";
+    Layout = "~/Areas/Admin/Views/Shared/shared/_Layout_All.cshtml";
+    var listLoaiKhoaHoc = ViewBag.listLoaiKhoaHoc as List<KLTN.Entities.HtPhanMuc>;
+    if (listLoaiKhoaHoc == null)
+    {
+        listLoaiKhoaHoc = new List<KLTN.Entities.HtPhanMuc>();
+    }
+}
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">@ViewBag.Title</h4>
+        </div>
+        <div class="col-12">
+            <div class="col-10">
+            </div>
+            <a class=" pull-right btn btn-info mb-4 col-2" href="quan_ly_khoa_hoc/them_moi" id="">Thêm khóa học mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="display" style="min-width: 845px">
+                    <thead>
+                        <tr>
+                            <th style="width:3%">STT</th>
+                            <th style="width:30%">Tên khóa học</th>
+                            <th style="width:15%">Giá</th>
+                            <th style="width:15%">Loại khóa học</th>
+                            <th style="width:15%">Đã đăng ký</th>
+                            <th style="width:10%">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.listsp != null && ((List<KLTN.Entities.DmKhoaHoc>)ViewBag.listsp).Any())
+                        {
+                            int i = 1;
+                            foreach (var item in (List<KLTN.Entities.DmKhoaHoc>)ViewBag.listsp)
+                            {
+
+                                <tr>
+                                    <td class="text-center">@i</td>
+                                    <td >@item.TenKhoaHoc</td>
+                                    <td>@item.Gia</td>
+                                    <td>@(listLoaiKhoaHoc.Where(x => x.Id == item.IdPhanMuc).FirstOrDefault()?.TenPhanMuc ?? "Chưa được xét")</td>
+                                    <td>0</td>
+                                    <td class="text-center">
+                                        <div style="margin: auto;">
+                                            <a href="@Url.Action("chi_tiet", "quan_ly_khoa_hoc", new { id = item.Id })" style="color: #593bdb; font-size: 22px">
+                                                <i class="fa fa-exclamation-circle"></i>
+                                            </a>
+                                            <a href="@Url.Action("cap_nhat", "quan_ly_khoa_hoc", new { id = item.Id })" style="color: #7ED321; font-size: 22px">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="@Url.Action("xoa", "quan_ly_khoa_hoc", new { id = item.Id })" style="color: #FF1616; font-size: 22px" onclick="return confirm('Are you sure you want to delete this product?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function ($) {
+    "use strict";
+
+    $(document).ready(function () {
+        // Lấy thông báo và cấu hình từ TempData
+        var message = '@TempData["ToastMessage"]';
+        var type = '@TempData["ToastType"]';
+        var customClass = '@TempData["ToastCustomClass"]'; // Lớp tùy chỉnh từ TempData
+
+        if (message) {
+            toastr.options = {
+                timeOut: 5000, // Thời gian hiển thị (ms)
+                closeButton: true, // Nút đóng
+                progressBar: true, // Thanh tiến trình
+                positionClass: "toast-top-right", // Vị trí hiển thị
+                toastClass: customClass || "toast", // Lớp CSS tùy chỉnh
+            };
+
+            // Hiển thị thông báo dựa trên loại
+            switch (type) {
+                case "success":
+                    toastr.success(message, "Thành công");
+                    break;
+                case "info":
+                    toastr.info(message, "Thông báo");
+                    break;
+                case "warning":
+                    toastr.warning(message, "Cảnh báo");
+                    break;
+                case "error":
+                    toastr.error(message, "Lỗi");
+                    break;
+            }
+        }
+    });
+})(jQuery);
+</script>

@@ -1,0 +1,111 @@
+﻿.toast-success-custom {
+    background-color: #593bdb !important; /* Màu xanh dương*/
+    min-width:185px !important;
+    color: #fff !important;
+}
+
+.toast-error-custom {
+    background-color: #FF1616 !important; /* Màu đỏ */
+    min-width: 185px !important;
+    color: #fff !important;
+}
+
+.toast-warning-custom {
+    background-color: #ef9800 !important; /* Màu cam */
+    min-width: 185px !important;
+    color: #fff !important;
+}
+
+.toast-info-custom {
+    background-color: #2fdeb7 !important; /* Màu xanh lá*/
+    min-width: 185px !important;
+    color: #fff !important;
+}
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+/* Định dạng nút đóng (X) */
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Màu nền mờ */
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7; /* Mờ */
+    transition: opacity 0.2s ease;
+    z-index: 1; /* Đảm bảo nút xóa ở trên ảnh */
+}
+
+    .btn-close:hover {
+        opacity: 1; /* Hiển thị rõ khi hover */
+    }
+
+/* Ảnh hiển thị bình thường */
+.img-thumbnail {
+    display: block;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+    /* Khi ảnh được hover sẽ sáng lên */
+    .img-thumbnail:hover {
+        filter: brightness(1); /* Tăng sáng khi hover */
+    }
+
+
+td div {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút theo chiều ngang */
+    align-items: center; /* Căn giữa các nút theo chiều dọc */
+    gap: 10px; /* Tạo khoảng cách giữa các nút, bạn có thể điều chỉnh giá trị này */
+    height: 100%; /* Đảm bảo chiều cao thẻ <td> được áp dụng */
+}
+.tx-danger {
+    color: #dc3545;
+}
+.p-15{
+    padding-left:15px;
+}
+.card-title-layout {
+    font-size: 16px;
+    font-weight: 500;
+    color: #bdbdc7;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+}
+.file-preview {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: inline-block;
+    position: relative;
+}
+
+    .file-preview span {
+        font-size: 14px;
+    }
+
+    .file-preview .btn-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+

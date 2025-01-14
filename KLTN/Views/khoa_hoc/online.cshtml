@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "online";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+
+
+<title>Live Online Classes</title>
+<style>
+
+    .hero_header {
+        background: linear-gradient(to bottom, rgba(255, 245, 250, 1), rgba(248, 242, 247, 1)), url('') no-repeat center center/cover;
+        color: #333;
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+        .hero_header h2 {
+            font-size: 2.8em;
+            margin: 0;
+            color: #5c2c6d;
+        }
+
+        .hero_header p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+    .main_1 {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+            .main_1 h2 {
+            color: #5c2c6d;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+    .courses_1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .course-card_1 {
+        background: white;
+        border: 1px solid #e5d8e1;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .course-card_1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card_1 img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .course-card_1 h3 {
+            color: #8e4492;
+            margin: 15px 0 10px;
+            font-size: 1.4em;
+        }
+
+        .course-card_1 p {
+            color: #4a4a4a;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .course-card_1 button {
+            background-color: #a258a8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            .course-card_1 button:hover {
+                background-color: #8e4492;
+            }
+
+    
+</style>
+
+
+  
+    <section class="hero_header">
+        <h2>Transform Your Learning Experience</h2>
+        <p>Explore a variety of courses tailored to your needs. Join us today!</p>
+    </section>
+    <main class="main_1">
+        <h2>Featured Courses</h2>
+        <div class="courses_1">
+            <div class="course-card_1">
+                <img src="~/Assets/Image/Beginner-English-Language-Learning.jpeg" alt="Beginner English">
+                <h3>Beginner English</h3>
+                <p>Start learning English with ease and confidence.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a> 
+            </div>
+            <div class="course-card_1">
+                <img src="~/Assets/Image/English Intermediate.jpg" alt="Intermediate English">
+                <h3>Intermediate English</h3>
+                <p>Enhance your language skills to the next level.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a>
+            </div>
+            <div class="course-card_1">
+                <img src="~/Assets/Image/advanced.jpg" alt="Advanced English">
+                <h3>Advanced English</h3>
+                <p>Master English for professional and academic success.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a>
+            </div>
+            <div class="course-card_1">
+                <img src="~/Assets/Image/business.jpg" alt="Business English">
+                <h3>Business English</h3>
+                <p>Learn the language of the corporate world.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a>
+            </div>
+            <div class="course-card_1">
+                <img src="~/Assets/Image/ietlss.jpg" alt="IELTS Preparation">
+                <h3>IELTS Preparation</h3>
+                <p>Get ready to ace your IELTS exam with confidence.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a>
+            </div>
+            <div class="course-card_1">
+                <img src="~/Assets/Image/conversation.jpg" alt="Conversation English">
+                <h3>Conversation English</h3>
+                <p>Boost your speaking and listening skills.</p>
+                <a href="/khoa_hoc/lien_he_mua_khoa_hoc"><button>Buy Now</button></a>
+            </div>
+        </div>
+    </main>
+    

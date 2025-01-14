@@ -1,0 +1,369 @@
+﻿
+@{
+    ViewBag.Title = "Tin_tuc01";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+
+<main class="m-0 p-0">
+    <section class="p-0 m-0 relative h-[350px] lg:h-[450px] header-ttdm flex items-end">
+        <div class="container max-w-[1320px] mx-auto pb-12 px-6 lg:px-0">
+            <div class="py-2 text-white text-[11px] flex line-clamp-1 space-x-0 lg:space-x-3 items-center lg:mb-2">
+                <a class="whitespace-nowrap" href="/">Home</a>
+                <img src="/Assets/Image/angle-right.png" alt="Angle right" class="w-4 h-4" />
+                <span class="whitespace-nowrap line-clamp-1">news</span>
+            </div>
+            <h1 class="text-black text-2xl xl:text-5xl font-bold">READING NEWS</h1>
+        </div>
+    </section>
+    <br>
+    <center>
+        <div class="item">
+            <img src="~/Assets/Image/read1.jpg" alt="SPDV1" class="reading1" />
+            <div class="pt-5 pb-[30px]">
+                <div class="mb-3">
+                    <a href="#" class="uppercase text-[#1684E9] text-[13px] tracking-widest">Productivity Hacks: How to Get More Done</a>
+                </div>
+                <h3 class="text-[#161c2D] line-clamp-1 text-lg lg:text-2xl font-semibold mb-3">Intermediate</h3>
+                <p class="text-[13px] mb-3 text-[#919296]">November 02, 2024</p>
+
+            </div>
+        </div>
+        <style>
+
+            .con {
+                max-width: 1300px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+
+            .exercise-header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+                .exercise-header h2 {
+                    font-size: 28px;
+                    color: #333;
+                    margin: 0;
+                }
+
+                .exercise-header h3 {
+                    font-size: 22px;
+                    color: #4caf50;
+                    margin: 5px 0 15px;
+                }
+
+
+            .vocabulary-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding: 15px;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+                .vocabulary-item:last-child {
+                    border-bottom: none;
+                }
+
+                .vocabulary-item .word-section {
+                    width: 20%;
+                }
+
+                    .vocabulary-item .word-section .word {
+                        font-size: 18px;
+                        color: #007bff;
+                        font-weight: bold;
+                    }
+
+                        .vocabulary-item .word-section .word small {
+                            margin-left: 10px;
+                            color: #666;
+                            font-size: 14px;
+                        }
+
+                .vocabulary-item .definition-section {
+                    text-align: -moz-center;
+                    padding-left: 40px;
+                }
+
+                    .vocabulary-item .definition-section p {
+                        margin: 5px 0;
+                        color: #555;
+                    }
+
+                .vocabulary-item .example {
+                    font-size: 16px;
+                    color: #333;
+                    font-style: italic;
+                    margin-top: 10px;
+                }
+
+                    .vocabulary-item .example small {
+                        display: inline-block;
+                        margin-left: 5px;
+                        color: #666;
+                        font-size: 14px;
+                    }
+
+                .vocabulary-item .image-section {
+                    width: 20%;
+                }
+
+                    .vocabulary-item .image-section img {
+                        max-width: 100%;
+                        border-radius: 5px;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    }
+        </style>
+        <div class="con">
+            <div class="exercise-header">
+                <h2>Exercise 1</h2>
+                <h3>Vocabulary</h3>
+            </div>
+            <div class="instruction">Repeat each word, definition, and example sentence after your tutor.</div>
+            <div class="vocabulary-item">
+                <div class="word-section">
+                    <div class="word"> distraction<small>Noun</small></div>
+                </div>
+                <div class="definition-section">
+                    <p><strong>/dɪˈstrækʃən/</strong></p>
+                    <p>something that stops a person from being able to concentrate or focus</p>
+                    <p class="example">
+                        Social media is a huge distraction  <strong>distraction</strong> for me when I'm working <small>
+                            <audio controls>
+                                <source src="~/Assets/audio/distraction.mp3" type="audio/mpeg" class="sound">
+
+                            </audio>
+                        </small>
+                    </p>
+                </div>
+                <div class="image-section">
+                    <img src="~/Assets/Image/pro.jpg" alt="personalized">
+                </div>
+            </div>
+            <div class="vocabulary-item">
+                <div class="word-section">
+                    <div class="word">pay attention <small>Noun</small></div>
+                </div>
+                <div class="definition-section">
+                    <p><strong>/peɪ əˈtenʃn/</strong></p>
+                    <p>to listen, notice, or consider something very carefully</p>
+                    <p class="example">
+                        The class didn't   <strong>pay any attention</strong> to the trainee teacher.. <small>
+                            <audio controls>
+                                <source src="~/Assets/audio/attention.mp3" type="audio/mpeg" class="sound">
+
+                            </audio>
+                        </small>
+                    </p>
+                </div>
+                <div class="image-section">
+                    <img src="~/Assets/Image/amfi.jpg" alt="amplification">
+                </div>
+            </div>
+            <div class="vocabulary-item">
+                <div class="word-section">
+                    <div class="word">hack<br /> <small>Noun</small></div>
+                </div>
+                <div class="definition-section">
+                    <p><strong>/hæk/</strong></p>
+                    <p>a trick, skill, etc. that allows one to do something more quickly or efficiently</p>
+                    <p class="example">
+                        A simple   <strong>hack</strong> to keep your headphones from getting tangled is to use a binder clip. <small>
+                            <audio controls>
+                                <source src="~/Assets/audio/hack.mp3" type="audio/mpeg" class="sound">
+
+                            </audio>
+                        </small>
+                    </p>
+                </div>
+                <div class="image-section">
+                    <img src="~/Assets/Image/reta.jpg" alt="retailer">
+                </div>
+            </div>
+        </div>
+        
+    </center>
+   
+
+    <div class="containerread">
+        <div class="exercise-header">
+            <h2>Exercise 2</h2>
+            <h3>
+                Article
+                Read the article aloud on your own or repeat each paragraph after your tutor.
+            </h3>
+        </div>
+        <div class="header">
+            <h1>Productivity Hacks: How to Get More Done</h1>
+        </div>
+        <div class="audio-player">
+            <audio controls>
+                <source src="~/Assets/audio/productivity-hacks-how-to-get-more-done.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="content">
+            <p>
+                Have you ever heard the phrase, "There aren't enough hours in the day"? It means you don't have enough time to do everything that needs to be done!
+
+                Having too many things to do can make you feel tired and less motivated. So here are some hacks to help improve your productivity and get things done!
+            </p>
+            <h2>Write things down</h2>
+            <p>Write down everything you need to do — this includes shopping lists, appointments, and any ideas you have.</p>
+            <p>In his 2001 bestselling book <em>Getting Things Done</em>, productivity coach David Allen said you should write down your ideas on paper. But technology has changed since the book first came out, so if a pen and paper aren’t your thing, try listing your tasks on your computer or phone instead!</p>
+
+            <h2>Cut out all distractions</h2>
+            <p>Probably the biggest distraction in our modern lives is technology — especially our phones.</p>
+            <p>If you find that things like turning off notifications and turning your phone face-down don’t help you stop using it, <em>The Guardian</em>’s Joel Snape recommends putting a rubber band around your phone.</p>
+            <p>It’s hard to use the screen through the rubber band, and seeing or touching the rubber band will remind you that you shouldn’t be using your phone at all!</p>
+
+            <h2>Schedule your day</h2>
+            <p>Make a detailed schedule of your day, including your working hours, break times, and any personal things you have to do.</p>
+            <p>When you make this schedule, pay attention to when you feel most focused and when you don’t — for example, you might not feel very focused until after lunch, or you might start to get tired near the end of the day.</p>
+            <p>This will help you decide the best times to do certain tasks. Try to do easier tasks when you have less focus, and more difficult tasks when you have more focus.</p>
+        </div>
+    </div>
+
+        </table>
+        <div class="contai">
+            <div class="exercise">
+                <h2>Exercise 3</h2>
+                <h3>Discussion</h3>
+                <p class="instruction">Have a discussion based on the following questions.</p>
+                <ol class="questions">
+                    <li>What are your thoughts on the productivity hacks mentioned in the article?</li>
+                    <li>How often do you feel like there aren't enough hours in the day?</li>
+                    <li>What do you find most distracting when you're trying to work?</li>
+                    <li>Are there certain times of day when you tend to have less focus?</li>
+                    <li>Do you ever write lists of the things you need to do?</li>
+                </ol>
+            </div>
+        </div>
+    </center>
+    <style>
+        .contai {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        .exercise h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .exercise h3 {
+            font-size: 24px;
+            color: #e91e63; /* Hồng đậm */
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .instruction {
+            background-color: #fdeff5; /* Nền hồng nhạt */
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .questions {
+            list-style-type: decimal;
+            margin: 0;
+            padding-left: 25px;
+        }
+
+            .questions li {
+                margin-bottom: 15px;
+                font-size: 18px;
+                color: #555;
+                line-height: 1.8;
+            }
+    </style>
+
+    </html>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .containerread {
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .header h1 {
+                margin: 0;
+                font-size: 24px;
+                color: #333;
+            }
+
+        .audio-player {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fff;
+        }
+
+            .audio-player audio {
+                width: 100%;
+            }
+
+        .content {
+            padding: 20px;
+        }
+
+            .content h2 {
+                font-size: 20px;
+                margin-top: 0;
+            }
+
+            .content p {
+                margin: 10px 0;
+            }
+
+            .content ul {
+                margin: 10px 0;
+                padding-left: 20px;
+            }
+
+                .content ul li {
+                    list-style: disc;
+                }
+    </style>
+
+</main>
+
+
+
+
